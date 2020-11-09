@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--列表-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li>{{list[0]}}</li>
+            <li>{{list[1]}}</li>
+            <li>{{list[2]}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(item, inx) in list" :key="inx">{{item}}-{{inx}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    '海娃给',
+                    '大话西游',
+                    '少年派'
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

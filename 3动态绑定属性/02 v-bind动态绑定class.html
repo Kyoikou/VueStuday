@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: #0FF;
+        }
+        
+        .active2 {
+            font-size: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2 class="active">{{message}}</h2>
+        <!-- <h2 :class="{类名1: boolean, 类名2: boolean}">{{message}}</h2> -->
+        <!-- 对象语法 -->
+        <h2 :class="{active: isActive, active2: isActive2}">{{message}}</h2>
+        <h2 :click="getClass">{{message}}</h2>
+        <h2 :click="getClass">{{message}}</h2>
+
+        <!-- 数组语法 -->
+        <h2 :class="[active line]">{{message}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                isActive: true,
+                isActive2: false,
+                active: 'class1',
+                line: 'line1'
+            },
+            methods: {
+                click1: function() {
+                    this.isActive = !this.isActive
+                },
+                getClass: function() {
+                    return {
+                        active: this.isActive,
+                        active2: this.isActive2
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

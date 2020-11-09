@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: #F0F;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>主要目标,使用v-for 以及 v-bind 当我们点击某一行,某一行变颜色,其他不变</p>
+        <p>集合如下</p>
+        <ul>
+            <li v-for="(item, inx) in list" :key="inx" :class="{'active': (num == inx)}" @click="change(inx)">{{item}}-{{inx}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    '海娃给',
+                    '大话西游',
+                    '少年派'
+                ],
+                num: -1
+            },
+            methods: {
+                change: function(inx) {
+                    this.num = inx;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

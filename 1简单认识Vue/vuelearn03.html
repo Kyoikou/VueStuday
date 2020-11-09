@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--计数器-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前计数:{{counter}}</h2>
+        <h2>当前计数:{{obj}}</h2>
+        <button v-on:click="obj++">+</button>
+        <button v-on:click="obj--">-</button>
+
+        <button v-on:click="add">++</button>
+        <button @click="sub">--</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        // proxy代理
+        let obj = 0;
+        const app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                obj
+            },
+            methods: {
+                add: function() {
+                    console.log(this.counter);
+                    // proxy
+                    this.counter++;
+                },
+                sub: function() {
+                    console.log(this.counter);
+                    this.counter--;
+                }
+            },
+            beforeCreate: function() {
+                console.log('beforeCreate')
+            },
+            created: function() {
+                // 一般处理网络请求
+                console.info('create')
+            },
+            mounted: function() {
+                console.info('mounted')
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 错误的做法：这里不可以使用mustache语法 -->
+        <!-- <h2>{{message}}</h2>
+        <img src="{{url}}" alt="{{}}"> -->
+        <a v-bind:href="url">{{message}}</a>
+        <!-- 语法糖 -->
+        <a :href="url">{{message}}</a>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                url: '<a href="http://www.baidu.com">百度一下</a>'
+            }
+        })
+    </script>
+</body>
+
+</html>
